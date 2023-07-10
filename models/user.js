@@ -11,14 +11,6 @@ const userSchema = new Schema(
     },
     email: String,
     avatar: String,
-    dateOfBirth: Date,
-    weight: Number,
-    height: String,
-    //made reference to workout plan
-    goal: {
-      type: String,
-      enum: ["Improve Shape", "Get Faster", "Lean & Tone"],
-    },
   },
   {
     timestamps: true,
