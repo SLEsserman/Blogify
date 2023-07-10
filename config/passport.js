@@ -12,7 +12,7 @@ passport.use(
       callbackURL: process.env.GOOGLE_CALLBACK,
     },
     // The verify callback function
-    // Let's use async/await!
+    // use async/await!
     async function (accessToken, refreshToken, profile, cb) {
       try {
         // Find an existing user in the database based on the Google ID
