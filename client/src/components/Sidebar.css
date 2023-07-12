@@ -1,0 +1,27 @@
+.sidebar-container{
+  width : 20%;
+margin:0;
+border-right:1px solid gray;
+height:100%;
+padding :20px 0;
+}
+
+a{
+  text-decoration: none;
+  color:#000000
+}
+
+a:link, a:visited{
+  text-decoration: none;
+  color: #000000
+}
+
+ul{
+  padding: 0;
+  
+}
+
+li {
+  list-style: none;
+
+}

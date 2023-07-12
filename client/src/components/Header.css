@@ -1,0 +1,27 @@
+.header-container {
+padding: 20px 50px;
+width:100%;
+background-color: azure;
+color:#000000;
+justify-content: space-between;
+display: flex;
+align-items: center;
+border-bottom: 1px solid gray;
+
+}
+
+
+.options-container{
+  display:flex;
+  gap:25px;
+}
+
+.link-item{
+  text-decoration: none;
+  color:#000000;
+}
+
+.link-item:link,.link-item:visited{
+color:"#000000"
+}
+

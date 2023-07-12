@@ -1,21 +1,22 @@
-import { Link } from 'react-router-dom'
+import React from "react"
+import { Link } from "react-router-dom"
+import "./Header.css"
 
-const Header = () => {
-
+function Header() {
   return (
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/profile">Profile</Link>
-          </li>
-          {/* Add more navigation links here */}
-        </ul>
-      </nav>
-    </header>
+    <div className="header-container">
+      <div>
+        <Link className="link-item" to="/">
+          Blogify
+        </Link>
+      </div>
+      <div className="options-container">
+        <div>Search</div>
+        <Link to="/profile" className="link-item">
+          Profile
+        </Link>
+      </div>
+    </div>
   )
 }
 
