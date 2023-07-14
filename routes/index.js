@@ -4,8 +4,10 @@ var router = express.Router()
 const passport = require("passport")
 const ensureLoggedIn = require("../config/ensureLoggedIn")
 const blogRoute = require("./blog")
+const commentRoute = require('./comment');
 
-router.use("/blog", blogRoute)
+router.use("/blog", blogRoute);
+router.use('/comment', commentRoute);
 
 // Route for the profile page
 router.get("/profile", ensureLoggedIn, function (req, res, next) {

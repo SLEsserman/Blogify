@@ -22,7 +22,8 @@ const Home = () => {
     window.open("http://localhost:3000/auth/google", "_self")
   }
 
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState([]);
+  const [comment, setComment] = useState('');
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await axios.get("http://localhost:3000/blog/all")
@@ -31,6 +32,19 @@ const Home = () => {
     }
     fetchPosts()
   }, [])
+
+  const handleComment = async (blogId) => {
+    try {
+      await axios.post('http://localhost:3000/comment', {
+        blogId,
+        comment
+      })
+      alert('Comment made successfully');
+    } catch (err) {
+      alert('Unable to make comment', err);
+    }
+    
+  }
 
   return (
     <div className="page-container">
@@ -45,9 +59,17 @@ const Home = () => {
           )}
           <h1>Home Page</h1>
           {posts.map((post) => (
-            <Post
-              postData={post}
-            />
+            <>
+              <Post
+                postData={post}
+              />
+              {
+                state?.user && <div>
+                  <input type="text" placeholder="Comment" onChange={(e) => setComment(e.target.value)} />
+                  <button onClick={() => handleComment(post._id)}>Comment</button>
+                </div>
+              }
+            </>
           ))}
         </div>
       </div>
