@@ -9,16 +9,31 @@ const Schema = mongoose.Schema
 // Define the user schema using the Schema constructor
 const blogSchema = new Schema(
   {
-    userId: String,
-    content: String,
-    likes: Number,
-    comments: []
-    googleId: {
-      type: String,
-      required: true,
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
     },
-    email: String,
-    avatar: String,
+    content: {
+      type: String,
+      required: true
+    },
+    likes: {
+      type: Number
+    },
+    comments: [
+      {
+        user: {
+          type: mongoose.Schema.Types.ObjectId,
+          required: true
+        },
+        content: {
+          type: String,
+          required: true
+        },
+        // ...other comment fields
+      }
+    ]
   },
   {
     timestamps: true,
