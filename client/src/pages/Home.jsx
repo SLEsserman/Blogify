@@ -22,9 +22,7 @@ const LoggedIn = () => {
       <h1>Home Page</h1>
       {posts.map((post) => (
         <Post
-          content={post.content}
-          comments="Test content for component"
-          likes={post.likes}
+          postData={post}
         />
       ))}
     </>
