@@ -3,7 +3,8 @@ const Post = ({ content, comments, likes }) => {
     <div className="post">
       <h2>{content}</h2>
       <p>{comments}</p>
-      <p>{likes}</p>
+      <button>{likes}</button>
+      <p>Written by: John DOe</p>
       {/* Add like and comment functionality here */}
     </div>
   )

@@ -5,21 +5,28 @@ import Sidebar from "../components/Sidebar"
 import Post from "../components/Post"
 import "./Home.css"
 import { Context } from "../context"
+import axios from "axios"
 
 const LoggedIn = () => {
+  const [posts, setPosts] = useState([])
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await axios.get("http://localhost:3000/blog/all")
+      setPosts(response.data.posts)
+      console.log(response.data.posts)
+    }
+    fetchPosts()
+  }, [])
   return (
     <>
       <h1>Home Page</h1>
-      <Post
-        content="Test title"
-        comments="Tst content for component"
-        likes={9}
-      />
-      <Post
-        content="Test title"
-        comments="Tst content for component"
-        likes={12}
-      />
+      {posts.map((post) => (
+        <Post
+          content={post.content}
+          comments="Test content for component"
+          likes={post.likes}
+        />
+      ))}
     </>
   )
 }
