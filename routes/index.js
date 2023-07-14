@@ -22,8 +22,8 @@ router.get(
 router.get(
   "/oauth2callback",
   passport.authenticate("google", {
-    successRedirect: "/profile",
-    failureRedirect: "/",
+    successRedirect: "http://localhost:5173",
+    failureRedirect: "http://localhost:5173/login",
   })
 )
 
