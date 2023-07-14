@@ -4,15 +4,31 @@ export const Context = createContext({
   user: null,
 })
 
+axios.defaults.withCredentials = true
+
 const AuthContext = ({ children }) => {
   const [state, setState] = useState({ user: null })
   useEffect(() => {
     const getUser = async () => {
       try {
-        axios.get("http://localhost:3000/profile").then((res) => {
-          console.log("res", res)
+        fetch("http://localhost:3000/profile", {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Credentials": true,
+          },
         })
-      } catch (err) {}
+          .then((res) => {
+            return res.json()
+          })
+          .then((resObj) => {
+            setState({ user: resObj.user })
+          })
+      } catch (err) {
+        console.log("err", err)
+      }
     }
     getUser()
   }, [])

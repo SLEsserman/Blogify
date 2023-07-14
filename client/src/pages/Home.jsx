@@ -7,12 +7,26 @@ import "./Home.css"
 import { Context } from "../context"
 
 const LoggedIn = () => {
-  return <h1>Home Page</h1>
+  return (
+    <>
+      <h1>Home Page</h1>
+      <Post
+        content="Test title"
+        comments="Tst content for component"
+        likes={9}
+      />
+      <Post
+        content="Test title"
+        comments="Tst content for component"
+        likes={12}
+      />
+    </>
+  )
 }
 
-const Home = ({ user }) => {
-  const globalStore = useContext(Context)
-  console.log("store data", globalStore)
+const Home = () => {
+  const { state } = useContext(Context)
+  console.log("Store data", state)
   const loginWithGoogle = () => {
     window.open("http://localhost:3000/auth/google", "_self")
   }
@@ -22,21 +36,11 @@ const Home = ({ user }) => {
       <div className="home-container">
         <Sidebar />
         <div className="content-container">
-          {user ? (
-            <LoggedIn user={user} />
+          {state?.user ? (
+            <LoggedIn user={state.user} />
           ) : (
             <button onClick={loginWithGoogle}>Sign In With google</button>
           )}
-          <Post
-            content="Test title"
-            comments="Tst content for component"
-            likes={9}
-          />
-          <Post
-            content="Test title"
-            comments="Tst content for component"
-            likes={12}
-          />
         </div>
       </div>
     </div>
