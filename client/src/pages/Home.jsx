@@ -8,23 +8,9 @@ import { Context } from "../context"
 import axios from "axios"
 
 const LoggedIn = () => {
-  const [posts, setPosts] = useState([])
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await axios.get("http://localhost:3000/blog/all")
-      setPosts(response.data.posts)
-      console.log(response.data.posts)
-    }
-    fetchPosts()
-  }, [])
+  
   return (
     <>
-      <h1>Home Page</h1>
-      {posts.map((post) => (
-        <Post
-          postData={post}
-        />
-      ))}
     </>
   )
 }
@@ -35,6 +21,17 @@ const Home = () => {
   const loginWithGoogle = () => {
     window.open("http://localhost:3000/auth/google", "_self")
   }
+
+  const [posts, setPosts] = useState([])
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await axios.get("http://localhost:3000/blog/all")
+      setPosts(response.data.posts)
+      console.log(response.data.posts)
+    }
+    fetchPosts()
+  }, [])
+
   return (
     <div className="page-container">
       <Header />
@@ -44,8 +41,14 @@ const Home = () => {
           {state?.user ? (
             <LoggedIn user={state.user} />
           ) : (
-            <button onClick={loginWithGoogle}>Sign In With google</button>
+            <button onClick={loginWithGoogle}>Sign In With Google</button>
           )}
+          <h1>Home Page</h1>
+          {posts.map((post) => (
+            <Post
+              postData={post}
+            />
+          ))}
         </div>
       </div>
     </div>

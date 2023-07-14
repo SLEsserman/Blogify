@@ -22,18 +22,34 @@ const postBlog = async (req, res) => {
 // Fetch all blog post
 const fetchAllBlogPosts = async (req, res) => {
   try {
-    const posts = await blogModel.find({}).populate('userId')
+    const posts = await blogModel.find({}).populate("userId")
     res.status(200).json({
       message: "Blog posts fetched successfully",
       posts,
     })
   } catch (err) {
-    console.log(err);
     res.status(500).json("Unable to fetch all blog posts")
+  }
+}
+
+// Fetch blogs belonging to a user
+const fetchUserBlogs = async (req, res) => {
+  try {
+    const { id } = req.params
+    const blogs = await blogModel.find({
+      userId: id,
+    })
+    res.status(200).json({
+      message: "Uer blogs fetched successfully",
+      blogs,
+    })
+  } catch (err) {
+    res.status(500).json("Unable to fetch user blogs")
   }
 }
 
 module.exports = {
   postBlog,
   fetchAllBlogPosts,
+  fetchUserBlogs,
 }

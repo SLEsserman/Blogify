@@ -40,7 +40,7 @@ router.get("/logout", function (req, res) {
   // Call req.logout to log the user out
   req.logout(function () {
     // Redirect to the home page
-    res.redirect("/")
+    res.status(200).end();
   })
 })
 
