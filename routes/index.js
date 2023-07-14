@@ -5,7 +5,12 @@ const passport = require("passport")
 const ensureLoggedIn = require("../config/ensureLoggedIn")
 
 // Route for the profile page
-router.get("/profile", ensureLoggedIn, function (req, res, next) {})
+router.get("/profile", ensureLoggedIn, function (req, res, next) {
+  console.log("was reached", req.user)
+  return res.send({
+    user: req.user,
+  })
+})
 
 // Google OAuth login route
 router.get(

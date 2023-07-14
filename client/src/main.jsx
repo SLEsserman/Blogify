@@ -1,11 +1,14 @@
-import React from "react"
+import React, { createContext } from "react"
 import ReactDOM from "react-dom/client"
 import router from "./router"
 import "./index.css"
 import { RouterProvider } from "react-router-dom"
+import AuthContext from "./context"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthContext>
+      <RouterProvider router={router} />
+    </AuthContext>
   </React.StrictMode>
 )
