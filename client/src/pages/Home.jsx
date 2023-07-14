@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import Header from "../components/Header"
-import Sidebar from "../components/Sidebar"
+import Sidebar from "../components/Sidebar";
+import Post from "../components/Post";
 import "./Home.css"
 
 const LoggedIn = () => {
@@ -23,6 +24,8 @@ const Home = ({ user }) => {
           ) : (
             <button onClick={loginWithGoogle}>Sign In With google</button>
           )}
+          <Post content='Test title' comments='Tst content for component' likes={9} />
+          <Post content='Test title' comments='Tst content for component' likes={12} />
         </div>
       </div>
     </div>
