@@ -1,8 +1,3 @@
-userId
-content
-likes
-comments
-
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
@@ -11,29 +6,17 @@ const blogSchema = new Schema(
   {
     userId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true
+      ref: "User",
+      required: true,
     },
     content: {
       type: String,
-      required: true
+      required: true,
     },
     likes: {
-      type: Number
+      type: Number,
+      default: 0,
     },
-    comments: [
-      {
-        user: {
-          type: mongoose.Schema.Types.ObjectId,
-          required: true
-        },
-        content: {
-          type: String,
-          required: true
-        },
-        // ...other comment fields
-      }
-    ]
   },
   {
     timestamps: true,

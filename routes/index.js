@@ -3,6 +3,9 @@ var moment = require("moment")
 var router = express.Router()
 const passport = require("passport")
 const ensureLoggedIn = require("../config/ensureLoggedIn")
+const blogRoute = require("./blog")
+
+router.use("/blog", blogRoute)
 
 // Route for the profile page
 router.get("/profile", ensureLoggedIn, function (req, res, next) {
