@@ -29,7 +29,10 @@ function Header() {
         </Link>
       </div>
       {state?.user && (
-        <div>
+        <div className="logout-flex">
+          <div>
+            Logged In as: <strong>{state.user.name}</strong>
+          </div>
           <button onClick={handleLogout}>Logout</button>
         </div>
       )}
