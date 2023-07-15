@@ -5,9 +5,11 @@ const passport = require("passport")
 const ensureLoggedIn = require("../config/ensureLoggedIn")
 const blogRoute = require("./blog")
 const commentRoute = require('./comment');
+const userRoute = require('./user');
 
 router.use("/blog", blogRoute);
 router.use('/comment', commentRoute);
+router.use('/user', userRoute);
 
 // Route for the profile page
 router.get("/profile", ensureLoggedIn, function (req, res, next) {

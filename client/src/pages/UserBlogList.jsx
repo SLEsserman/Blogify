@@ -14,6 +14,7 @@ function UserBlogList() {
       const params = new URLSearchParams(window.location.search)
       const id = params.get("id")
       const response = await axios.get(`http://localhost:3000/blog/${id}`)
+      console.log(response.data.blogs);
       setPosts(response.data.blogs)
     }
     fetchUserBlogs()
@@ -24,6 +25,7 @@ function UserBlogList() {
       <div className="profile-container">
         <h3>User blog List</h3>
         <a href="/">Go back home</a>
+        <button>Follow Samuel</button>
         {posts.map((post, index) => (
           <div className="post" key={index}>
             <Post postData={post} loggedInUser={state.user} />

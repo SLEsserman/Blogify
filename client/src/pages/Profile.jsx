@@ -14,6 +14,10 @@ function Profile() {
         <h1>Profile Page</h1>
         <div>{state?.user?.name}</div>
         <div>{state?.user?.email}</div>
+        <div>
+          <p>Followers: {state?.user?.followers.length}</p>
+          <p>Following: {state?.user?.following.length}</p>
+        </div>
         <Link to="/post/create">
           <button>Create New Post</button>
         </Link>
