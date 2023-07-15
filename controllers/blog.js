@@ -64,7 +64,7 @@ const fetchUserBlogs = async (req, res) => {
       .find({
         userId: id,
       })
-      .populate("comments")
+      .populate(["userId", { path: "comments", populate: ["user"] }])
     res.status(200).json({
       message: "Uer blogs fetched successfully",
       blogs,
