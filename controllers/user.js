@@ -31,7 +31,7 @@ async function getUserProfile(req, res) {
 async function followUser(req, res) {
   try {
     const user = req.user
-    const { followerId } = req.body;
+    const { followerId } = req.body
     // Update follower list of user you are following
     let userToFollow = await User.findById(followerId)
     if (!userToFollow.followers.includes(user._id)) {
@@ -57,8 +57,10 @@ async function followUser(req, res) {
       followingList.following = filteredData
     }
     await followingList.save()
-    console.log('hey')
-    res.status(200).send("Done")
+    console.log("hey")
+    res.status(200).json({
+      message: "Done",
+    })
   } catch (err) {
     return res.status(500).send({
       message: "unable to follow user",

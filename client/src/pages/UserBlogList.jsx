@@ -29,13 +29,26 @@ function UserBlogList() {
 
   const handleFollow = async (id) => {
     try {
-      await axios.post("http://locahost:3000/user/follow", {
-        followerId: id,
+      fetch("http://localhost:3000/user/follow", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": true,
+        },
+        body: JSON.stringify({
+          followerId: id,
+        }),
       })
-      alert("User followed")
-      //return navigate("/profile")
+        .then((res) => {
+          return res.json()
+        })
+        .then((resObj) => {
+          alert("User followed")
+        })
     } catch (err) {
-      console.log("error", err)
+      console.log("err", err)
     }
   }
   return (
