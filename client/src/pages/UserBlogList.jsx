@@ -27,7 +27,7 @@ function UserBlogList() {
     return navigate("/profile")
   }
 
-  const handleFollow = async (id) => {
+  const handleFollow = async (id, type) => {
     try {
       fetch("http://localhost:3000/user/follow", {
         method: "POST",
@@ -45,7 +45,8 @@ function UserBlogList() {
           return res.json()
         })
         .then((resObj) => {
-          alert("User followed")
+          alert(type === "follow" ? "User followed" : "User unfollowed")
+          window.location.reload()
         })
     } catch (err) {
       console.log("err", err)
@@ -58,9 +59,16 @@ function UserBlogList() {
         <h3>User blog List</h3>
         <a href="/">Go back home</a>
         <hr />
-        <button onClick={() => handleFollow(userProfile?._id)}>
-          Follow {userProfile?.name}
-        </button>
+        {state?.user?.following?.includes(userProfile?._id) ? (
+          <button onClick={() => handleFollow(userProfile?._id, "unfollow")}>
+            Unfollow {userProfile?.name}
+          </button>
+        ) : (
+          <button onClick={() => handleFollow(userProfile?._id, "follow")}>
+            Follow {userProfile?.name}
+          </button>
+        )}
+
         {posts.map((post, index) => (
           <div className="post" key={index}>
             <Post postData={post} loggedInUser={state.user} />
