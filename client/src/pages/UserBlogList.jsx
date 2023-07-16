@@ -27,14 +27,15 @@ function UserBlogList() {
     return navigate("/profile")
   }
 
-  const handleFollow = async () => {
+  const handleFollow = async (id) => {
     try {
-      const params = new URLSearchParams(window.location.search)
-      const id = params.get("id")
-      let res = await axios.patch("http://locahost:3000/user/follow/" + id)
-      return navigate("/profile")
+      await axios.post("http://locahost:3000/user/follow", {
+        followerId: id,
+      })
+      alert("User followed")
+      //return navigate("/profile")
     } catch (err) {
-      console.log(err.message)
+      console.log("error", err)
     }
   }
   return (
@@ -43,7 +44,10 @@ function UserBlogList() {
       <div className="profile-container">
         <h3>User blog List</h3>
         <a href="/">Go back home</a>
-        <button onClick={handleFollow}>Follow {userProfile?.name}</button>
+        <hr />
+        <button onClick={() => handleFollow(userProfile?._id)}>
+          Follow {userProfile?.name}
+        </button>
         {posts.map((post, index) => (
           <div className="post" key={index}>
             <Post postData={post} loggedInUser={state.user} />
