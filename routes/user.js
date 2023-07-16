@@ -1,9 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const { followUser } = require('../controllers/user');
+const express = require("express")
+const router = express.Router()
+const { followUser, getUserProfile } = require("../controllers/user")
 const ensureLoggedIn = require("../config/ensureLoggedIn")
+// Route to follow and unfollow a user
+router.patch("/follow", ensureLoggedIn, followUser)
+router.get("/:id", ensureLoggedIn, getUserProfile)
 
-// Route to follow a user
-router.post('/follow', ensureLoggedIn, followUser);
-
-module.exports = router;
+module.exports = router
