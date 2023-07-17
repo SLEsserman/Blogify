@@ -33,14 +33,12 @@ const Post = ({ postData, loggedInUser, setRefetch }) => {
       <div className="border border-gray-700 px-4 py-2 mt-2" 
       >
         <h4 className="mt-2 mb-2 font-bold">Post Comments</h4>
-        <ul >
           {postData.comments.map((comment) => {
-            return (
-                <li key={comment._id}>{comment.comment} by {comment.user.name}{" "}</li>
-              
-            )
-          })}
-        </ul>
+              return (
+                  <p key={comment._id}> -> "{comment.comment}" by <b>{comment.user.name}{" "}</b></p>
+                
+              )
+            })}
       </div>
     </div>
   )
