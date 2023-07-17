@@ -30,14 +30,17 @@ const Post = ({ postData, loggedInUser, setRefetch }) => {
         </a>
       </p>
       {/* Add like and comment functionality here */}
-      <h4 className="mt-2 font-bold">Post Comments</h4>
-      {postData.comments.map((comment) => {
-        return (
-          <div key={comment._id}>
-            {comment.comment} by {comment.user.name}{" "}
-          </div>
-        )
-      })}
+      <div className="border-grey-200" 
+      >
+        <h4 className="mt-2 font-bold">Post Comments</h4>
+        {postData.comments.map((comment) => {
+          return (
+            <div key={comment._id}>
+              {comment.comment} by {comment.user.name}{" "}
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }
