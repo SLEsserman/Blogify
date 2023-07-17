@@ -21,7 +21,7 @@ function Profile() {
           <div className="text-xl"><b>Following:</b> {state?.user?.following.length}</div>
         </div>
         <Link to="/post/create">
-          <button>Create New Post</button>
+          <button className="bg-blue-300 p-2 mt-4 rounded-md font-bold">Create New Post</button>
         </Link>
       </div>
     </div>

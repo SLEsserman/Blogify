@@ -27,10 +27,12 @@ function CreatePost() {
   return (
     <div>
       <Header />
-      <div className="profile-container">
-        <h1>Profile Page</h1>
-        <div>{state?.user?.name}</div>
-        <div>{state?.user?.email}</div>
+      <div className="bg-blue-400">
+        <h1 className="text-center font-bold text-2xl pt-4">Profile Page</h1>
+        <div className="grid grid-cols-2 gap-4 mt-4">
+          <div className="text-xl"><b>Name:</b> {state?.user?.name}</div>
+          <div className="text-xl"><b>Email:</b> {state?.user?.email}</div>
+        </div>
         <Link to="/">
           <button>Go back Home</button>
         </Link>
