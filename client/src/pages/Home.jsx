@@ -52,30 +52,37 @@ const Home = () => {
           {state?.user ? (
             <LoggedIn user={state.user} />
           ) : (
-            <button className="bg-blue-300 p-2 rounded-md text-white" onClick={loginWithGoogle}>Sign In With Google</button>
+            <button
+              className="bg-blue-300 p-2 rounded-md text-white"
+              onClick={loginWithGoogle}
+            >
+              Sign In With Google
+            </button>
           )}
-          <h1>Home Page</h1>
-          {posts.map((post, index) => (
-            <div className="post" key={index}>
-              <Post
-                postData={post}
-                setRefetch={setRefetch}
-                loggedInUser={state.user}
-              />
-              {state?.user && (
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Comment"
-                    onChange={(e) => setComment(e.target.value)}
-                  />
-                  <button onClick={() => handleComment(post._id)}>
-                    Comment
-                  </button>
-                </div>
-              )}
-            </div>
-          ))}
+          <div className="mt-4 bg-gray-300 p-4">
+            <h1 className="mb-4 mt-4 text-center text-xl font-bold">Blogify Home Page</h1>
+            {posts.map((post, index) => (
+              <div className="post" key={index}>
+                <Post
+                  postData={post}
+                  setRefetch={setRefetch}
+                  loggedInUser={state.user}
+                />
+                {state?.user && (
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Comment"
+                      onChange={(e) => setComment(e.target.value)}
+                    />
+                    <button onClick={() => handleComment(post._id)}>
+                      Comment
+                    </button>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
