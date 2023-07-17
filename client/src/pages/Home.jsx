@@ -62,7 +62,7 @@ const Home = () => {
           <div className="mt-4 bg-gray-300 p-4">
             <h1 className="mb-4 mt-4 text-center text-xl font-bold">Blogify Home Page</h1>
             {posts.map((post, index) => (
-              <div className="post" key={index}>
+              <div className="bg-white p-4 mb-4 rounded-md" key={index}>
                 <Post
                   postData={post}
                   setRefetch={setRefetch}

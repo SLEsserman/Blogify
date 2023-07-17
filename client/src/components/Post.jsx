@@ -11,8 +11,8 @@ const Post = ({ postData, loggedInUser, setRefetch }) => {
   }
   return (
     <div>
-      <h2>{postData.title}</h2>
-      <p>{postData.content}</p>
+      <h2 className="text-xl font-bold">{postData.title}</h2>
+      <p className="mt-2 text-md font-light">{postData.content}</p>
       {loggedInUser ? (
         <div>
           <button onClick={updateLikeStatus}>
@@ -22,14 +22,15 @@ const Post = ({ postData, loggedInUser, setRefetch }) => {
           {postData?.likes?.length > 1 ? "people" : "person"}
         </div>
       ) : null}
+      <hr className="mt-2 mb-2" />
       <p>
-        Written by:{" "}
+        <span className="font-bold">Written by:{" "}</span>
         <a href={`/post/user?id=${postData.userId._id}`}>
           {postData.userId.name}
         </a>
       </p>
       {/* Add like and comment functionality here */}
-      <h4>Comments</h4>
+      <h4 className="mt-2 font-bold">Post Comments</h4>
       {postData.comments.map((comment) => {
         return (
           <div key={comment._id}>
