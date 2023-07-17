@@ -27,14 +27,14 @@ function CreatePost() {
   return (
     <div>
       <Header />
-      <div className="bg-blue-400 p-4">
+      <div className="bg-blue-400 p-4 h-screen">
         <h1 className="text-center font-bold text-2xl pt-4">Profile Page</h1>
         <div className="grid grid-cols-2 gap-4 mt-4">
           <div className="text-xl"><b>Name:</b> {state?.user?.name}</div>
           <div className="text-xl"><b>Email:</b> {state?.user?.email}</div>
         </div>
         <Link to="/">
-          <button>Go back Home</button>
+          <button className="bg-white text-blue-700 rounded-md p-2 mt-4">Go back Home</button>
         </Link>
         <div className="mx-80 bg-white p-4">
           <form onSubmit={handleCreatePost}>
@@ -51,7 +51,7 @@ function CreatePost() {
               </div>
             </div>
             <div>
-              <button className="w-full bg-blue-400 text-white p-2 rounded-md">Create Post</button>
+              <button className="w-full bg-blue-400 text-white p-2 rounded-md mt-4">Create Post</button>
             </div>
           </form>
         </div>

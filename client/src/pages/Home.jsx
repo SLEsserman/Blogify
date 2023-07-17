@@ -69,14 +69,15 @@ const Home = () => {
                   loggedInUser={state.user}
                 />
                 {state?.user && (
-                  <div>
+                  <div className="mt-4">
                     <input
+                      className="w-full h-12 border border-gray-200 rounded-md px-2"
                       type="text"
                       placeholder="Comment"
                       onChange={(e) => setComment(e.target.value)}
                     />
-                    <button onClick={() => handleComment(post._id)}>
-                      Comment
+                    <button className="bg-blue-300 p-2 rounded-md text-white mt-4" onClick={() => handleComment(post._id)}>
+                      Make Comment
                     </button>
                   </div>
                 )}
