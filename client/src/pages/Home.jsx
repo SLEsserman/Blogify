@@ -52,7 +52,7 @@ const Home = () => {
           {state?.user ? (
             <LoggedIn user={state.user} />
           ) : (
-            <button onClick={loginWithGoogle}>Sign In With Google</button>
+            <button className="bg-blue-300 p-2 rounded-md text-white" onClick={loginWithGoogle}>Sign In With Google</button>
           )}
           <h1>Home Page</h1>
           {posts.map((post, index) => (
