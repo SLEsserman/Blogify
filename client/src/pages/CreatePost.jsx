@@ -27,7 +27,7 @@ function CreatePost() {
   return (
     <div>
       <Header />
-      <div className="bg-blue-400">
+      <div className="bg-blue-400 p-4">
         <h1 className="text-center font-bold text-2xl pt-4">Profile Page</h1>
         <div className="grid grid-cols-2 gap-4 mt-4">
           <div className="text-xl"><b>Name:</b> {state?.user?.name}</div>
@@ -36,18 +36,22 @@ function CreatePost() {
         <Link to="/">
           <button>Go back Home</button>
         </Link>
-        <div>
+        <div className="mx-80 bg-white p-4">
           <form onSubmit={handleCreatePost}>
-            <div>
-              <label>Title</label>
-              <input type="text" placeholder="Post Title" onChange={(e) => setTitle(e.target.value)} />
+            <div className="grid grid-cols-1 mt-4">
+              <div>
+                <p className="mb-2 font-bold text-md">Post Title</p>
+                <input className="w-full h-12 border border-gray-200 rounded-md px-2" type="text" placeholder="Post Title" onChange={(e) => setTitle(e.target.value)} />
+              </div>
+            </div>
+            <div className="grid grid-cols-1 mt-4">
+              <div>
+                <p className="mb-2 font-bold text-md">Post Body</p>
+                <textarea className="w-full border border-gray-200 rounded-md px-2" rows={10} onChange={(e) => setContent(e.target.value)}></textarea>
+              </div>
             </div>
             <div>
-              <label>Post Body</label> <br />
-              <textarea rows={25} onChange={(e) => setContent(e.target.value)}></textarea>
-            </div>
-            <div>
-              <button>Create Post</button>
+              <button className="w-full bg-blue-400 text-white p-2 rounded-md">Create Post</button>
             </div>
           </form>
         </div>
