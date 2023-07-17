@@ -25,7 +25,7 @@ const Post = ({ postData, loggedInUser, setRefetch }) => {
       <hr className="mt-2 mb-2" />
       <p>
         <span className="font-bold">Written by:{" "}</span>
-        <a href={`/post/user?id=${postData.userId._id}`}>
+        <a className="text-underline" href={`/post/user?id=${postData.userId._id}`}>
           {postData.userId.name}
         </a>
       </p>

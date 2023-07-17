@@ -10,13 +10,15 @@ function Profile() {
   return (
     <div>
       <Header />
-      <div className="profile-container">
-        <h1>Profile Page</h1>
-        <div>{state?.user?.name}</div>
-        <div>{state?.user?.email}</div>
-        <div>
-          <p>Followers: {state?.user?.followers.length}</p>
-          <p>Following: {state?.user?.following.length}</p>
+      <div className='bg-gray-300 p-4'>
+        <h1 className="text-center font-bold text-2xl">Profile Page</h1>
+        <div className="grid grid-cols-2 gap-4 mt-4">
+          <div className="text-xl"><b>Name:</b> {state?.user?.name}</div>
+          <div className="text-xl"><b>Email:</b> {state?.user?.email}</div>
+        </div>
+        <div className="grid grid-cols-2 gap-4 mt-4">
+          <div className="text-xl"><b>Followers:</b> {state?.user?.followers.length}</div>
+          <div className="text-xl"><b>Following:</b> {state?.user?.following.length}</div>
         </div>
         <Link to="/post/create">
           <button>Create New Post</button>
