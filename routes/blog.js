@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router()
-const { postBlog, fetchAllBlogPosts, fetchUserBlogs, updateLikes } = require("../controllers/blog");
+const { postBlog, fetchAllBlogPosts, fetchUserBlogs, updateLikes, deleteBlogPost } = require("../controllers/blog");
 const ensureLoggedIn = require("../config/ensureLoggedIn")
 
 // Route to post blog
@@ -11,6 +11,7 @@ router.get('/all', fetchAllBlogPosts);
 
 // Route to fetch blogs of a user
 router.get('/:id', ensureLoggedIn, fetchUserBlogs);
-router.patch("/:id",ensureLoggedIn, updateLikes)
+router.patch("/:id",ensureLoggedIn, updateLikes);
+router.delete('/:id', ensureLoggedIn, deleteBlogPost);
 
 module.exports = router

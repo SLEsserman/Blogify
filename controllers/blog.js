@@ -66,11 +66,23 @@ const fetchUserBlogs = async (req, res) => {
       })
       .populate(["userId", { path: "comments", populate: ["user"] }])
     res.status(200).json({
-      message: "Uer blogs fetched successfully",
+      message: "User blogs fetched successfully",
       blogs,
     })
   } catch (err) {
     res.status(500).json("Unable to fetch user blogs")
+  }
+}
+
+const deleteBlogPost = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await blogModel.findByIdAndDelete(id);
+    res.status(200).json({
+      message: "Blog post deleted successfully",
+    })
+  } catch (err) {
+    res.status(500).json("Unable to delete blog")
   }
 }
 
@@ -79,4 +91,5 @@ module.exports = {
   fetchAllBlogPosts,
   fetchUserBlogs,
   updateLikes,
+  deleteBlogPost,
 }
