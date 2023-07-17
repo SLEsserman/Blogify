@@ -5,7 +5,7 @@ const Sidebar = () => {
   return (
     <nav className="sidebar-container">
       <ul>
-        <li>
+        <li className="bg-blue-300 p-2 rounded-md">
           <Link to="/">Home</Link>
         </li>
         <li>
