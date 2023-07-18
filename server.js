@@ -71,5 +71,3 @@ app.use(function (err, req, res, next) {
 })
 
 app.listen(process.env.PORT, () => console.log("server started"))
-
-module.exports = app
