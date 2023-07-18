@@ -9,6 +9,7 @@ function CreatePost() {
   const { state } = useContext(Context)
   const [title, setTitle] = useState("")
   const [content, setContent] = useState("")
+  const [category, setCategory] = useState("")
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
@@ -29,12 +30,18 @@ function CreatePost() {
       const response = await axios.post("http://localhost:3000/blog/new", {
         title,
         content,
+        category,
       })
       alert("Blog post made successfully")
+      window.location.href = "/"
       //console.log(response);
     } catch (err) {
       alert("Unable to make a post", err)
     }
+  }
+
+  const handleCategorySelection = (e) => {
+    setCategory(e.target.value)
   }
 
   return (
@@ -71,10 +78,18 @@ function CreatePost() {
             <div className="grid grid-cols-1 mt-4">
               <div>
                 <p className="mb-2 font-bold text-md">Post Category</p>
-                <select className="w-full h-12 border border-gray-200 rounded-md px-2">
+                <select
+                  className="w-full h-12 border border-gray-200 rounded-md px-2"
+                  onChange={(e) => handleCategorySelection(e)}
+                >
+                  <option value=''>
+                        Select a category
+                      </option>
                   {categories?.map((category) => {
                     return (
-                      <option key={category._id} value={category._id}>{category.name}</option>
+                      <option key={category._id} value={category._id}>
+                        {category.name}
+                      </option>
                     )
                   })}
                 </select>

@@ -23,6 +23,7 @@ const Post = ({ postData, loggedInUser, setRefetch }) => {
     <div>
       <h2 className="text-xl font-bold">{postData.title}</h2>
       <p className="mt-2 text-md font-light">{postData.content}</p>
+      <p className="mt-2 text-md font-light">Category: {postData?.category?.name}</p>
       {loggedInUser ? (
         <div>
           <button class="rounded-full" onClick={updateLikeStatus}>

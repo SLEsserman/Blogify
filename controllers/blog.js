@@ -25,12 +25,13 @@ async function updateLikes(req, res) {
 // Controller to make a blog post
 const postBlog = async (req, res) => {
   try {
-    const { title, content } = req.body
+    const { title, content, category } = req.body
     console.log(req.user, content)
     const blog = new blogModel({
       userId: req.user._id,
       title,
       content,
+      category,
     })
     await blog.save()
     res.status(200).json({
@@ -46,7 +47,7 @@ const fetchAllBlogPosts = async (req, res) => {
   try {
     const posts = await blogModel
       .find({})
-      .populate(["userId", { path: "comments", populate: ["user"] }])
+      .populate(["userId", { path: "comments", populate: ["user"] }, {path: 'category'}])
     res.status(200).json({
       message: "Blog posts fetched successfully",
       posts,
