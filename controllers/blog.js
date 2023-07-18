@@ -80,7 +80,7 @@ const deleteBlogPost = async (req, res) => {
     let userId = req.user._id
     let blogPost = await blogModel.findById(id)
     if (userId.toString() === blogPost.userId.toString()) {
-      await blogPost.remove()
+      await blogModel.findByIdAndDelete(id)
       return res.status(200).json({
         message: "Blog post deleted successfully",
       })
