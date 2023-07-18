@@ -18,12 +18,12 @@ function Header() {
   return (
     <div className="header-container">
       <div>
-        <Link className="link-item" to="/">
+        <Link className="link-item font-bold text-xl" to="/">
           Blogify
         </Link>
       </div>
       <div className="options-container">
-        <Link to="/profile" className="link-item">
+        <Link to="/profile" className="link-item font-bold text-xl">
           Profile
         </Link>
       </div>

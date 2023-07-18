@@ -26,7 +26,7 @@ const Post = ({ postData, loggedInUser, setRefetch }) => {
       <p className="mt-2 text-md font-light">Category: {postData?.category?.name}</p>
       {loggedInUser ? (
         <div>
-          <button class="rounded-full" onClick={updateLikeStatus}>
+          <button class="bg-blue-300 p-2 rounded-md font-bold text-white" onClick={updateLikeStatus}>
             {postData?.likes?.includes(loggedInUser._id) ? "Unlike" : "Like"}
           </button>&nbsp;
           Liked by {postData?.likes?.length}{" "}

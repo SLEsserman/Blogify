@@ -48,15 +48,7 @@ function CreatePost() {
     <div>
       <Header />
       <div className="bg-blue-400 p-4 h-screen">
-        <h1 className="text-center font-bold text-2xl pt-4">Profile Page</h1>
-        <div className="grid grid-cols-2 gap-4 mt-4">
-          <div className="text-xl">
-            <b>Name:</b> {state?.user?.name}
-          </div>
-          <div className="text-xl">
-            <b>Email:</b> {state?.user?.email}
-          </div>
-        </div>
+        <h1 className="text-center font-bold text-2xl pt-4">Post</h1>
         <Link to="/">
           <button className="bg-white text-blue-700 rounded-md p-2 mt-4">
             Go back Home
