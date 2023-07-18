@@ -90,8 +90,20 @@ const deleteBlogPost = async (req, res) => {
       message: "unable to delete, inadequate permission",
     })
   } catch (err) {
-    console.log(err.message)
     res.status(500).json("Unable to delete blog")
+  }
+}
+
+const fetchBlogsByCategory = async (req, res) => {
+  try {
+    const {id} = req.params;
+    const posts = await blogModel.find({category: id}).populate(["userId", { path: "comments", populate: ["user"] }, {path: 'category'}])
+    res.status(200).json({
+      message: 'Blogs fetched successfully',
+      posts,
+    })
+  } catch (err) {
+    res.status(500).json("Unable to fetch blogs")
   }
 }
 
@@ -101,4 +113,5 @@ module.exports = {
   fetchUserBlogs,
   updateLikes,
   deleteBlogPost,
+  fetchBlogsByCategory,
 }

@@ -21,6 +21,7 @@ const Home = () => {
   const [posts, setPosts] = useState([])
   const [comment, setComment] = useState("")
   const [refetch, setRefetch] = useState(false)
+  const [categories, setCategories] = useState([])
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await axios.get("http://localhost:3000/blog/all")
@@ -29,6 +30,18 @@ const Home = () => {
     }
     fetchPosts()
   }, [refetch])
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/category/all")
+        setCategories(response.data.categories)
+      } catch (err) {
+        setCategories([])
+      }
+    }
+    fetchCategories()
+  }, [])
 
   const handleComment = async (blogId) => {
     try {
@@ -40,6 +53,19 @@ const Home = () => {
       setRefetch(!refetch)
     } catch (err) {
       alert("Unable to make comment", err)
+    }
+  }
+
+  const handleBlogFiltering = async (event) => {
+    try {
+      if (event.target.value === 'all') {
+        window.location.reload();
+      } else {
+        const response = await axios.get(`http://localhost:3000/blog/filter/${event.target.value}`)
+        setPosts(response.data.posts)
+      }
+    } catch (err) {
+      setPosts([])
     }
   }
 
@@ -63,6 +89,21 @@ const Home = () => {
             <h1 className="mb-4 mt-4 text-center text-xl font-bold">
               Feed
             </h1>
+            <select
+                  className="w-full h-12 border border-gray-200 rounded-md px-2 mb-4"
+                  onChange={(e) => handleBlogFiltering(e)}
+                >
+                  <option value='all'>
+                        Filter Blogs
+                      </option>
+                  {categories?.map((category) => {
+                    return (
+                      <option key={category._id} value={category._id}>
+                        {category.name}
+                      </option>
+                    )
+                  })}
+                </select>
             {posts.map((post, index) => (
               <div className="bg-white p-4 mb-4 rounded-md" key={index}>
                 <Post
