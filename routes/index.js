@@ -6,10 +6,12 @@ const ensureLoggedIn = require("../config/ensureLoggedIn")
 const blogRoute = require("./blog")
 const commentRoute = require('./comment');
 const userRoute = require('./user');
+const categoryRoute = require('./category');
 
 router.use("/blog", blogRoute);
 router.use('/comment', commentRoute);
 router.use('/user', userRoute);
+router.use('/category', categoryRoute);
 
 // Route for the profile page
 router.get("/profile", ensureLoggedIn, function (req, res, next) {
