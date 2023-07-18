@@ -36,8 +36,8 @@ const Home = () => {
         blogId,
         comment,
       })
-      setRefetch(!refetch)
       setComment("")
+      setRefetch(!refetch)
     } catch (err) {
       alert("Unable to make comment", err)
     }
@@ -60,7 +60,9 @@ const Home = () => {
             </button>
           )}
           <div className="mt-4 bg-gray-300 p-4">
-            <h1 className="mb-4 mt-4 text-center text-xl font-bold">Blogify Home Page</h1>
+            <h1 className="mb-4 mt-4 text-center text-xl font-bold">
+              Blogify Home Page
+            </h1>
             {posts.map((post, index) => (
               <div className="bg-white p-4 mb-4 rounded-md" key={index}>
                 <Post
@@ -74,9 +76,13 @@ const Home = () => {
                       className="w-full h-12 border border-gray-200 rounded-md px-2"
                       type="text"
                       placeholder="Comment"
+                      value={comment}
                       onChange={(e) => setComment(e.target.value)}
                     />
-                    <button className="bg-blue-300 p-2 rounded-md text-white mt-4" onClick={() => handleComment(post._id)}>
+                    <button
+                      className="bg-blue-300 p-2 rounded-md text-white mt-4"
+                      onClick={() => handleComment(post._id)}
+                    >
                       Make Comment
                     </button>
                   </div>
