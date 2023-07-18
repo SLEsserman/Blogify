@@ -23,7 +23,6 @@ function Header() {
         </Link>
       </div>
       <div className="options-container">
-        <div>Search</div>
         <Link to="/profile" className="link-item">
           Profile
         </Link>
