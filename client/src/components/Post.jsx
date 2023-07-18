@@ -9,6 +9,15 @@ const Post = ({ postData, loggedInUser, setRefetch }) => {
       console.log(err.message)
     }
   }
+  
+  const handleDelete = async ()=> {
+    try{
+
+    } catch (err){
+      console.log(err.message)
+    }
+  }
+
   return (
     <div>
       <h2 className="text-xl font-bold">{postData.title}</h2>
@@ -24,22 +33,31 @@ const Post = ({ postData, loggedInUser, setRefetch }) => {
       ) : null}
       <hr className="mt-2 mb-2" />
       <p>
-        <span className="font-bold">Written by:{" "}</span>
-        <a className="text-underline" href={`/post/user?id=${postData.userId._id}`}>
+        <span className="font-bold">Written by: </span>
+        <a
+          className="text-underline"
+          href={`/post/user?id=${postData.userId._id}`}
+        >
           {postData.userId.name}
         </a>
       </p>
       {/* Add like and comment functionality here */}
-      <div className="border border-gray-700 px-4 py-2 mt-2" 
-      >
+      <div className="border border-gray-700 px-4 py-2 mt-2">
         <h4 className="mt-2 mb-2 font-bold">Post Comments</h4>
-          {postData.comments.map((comment) => {
-              return (
-                  <p key={comment._id}> -> "{comment.comment}" by <b>{comment.user.name}{" "}</b></p>
-                
-              )
-            })}
+        {postData.comments.map((comment) => {
+          return (
+            <p key={comment._id}>
+              {" "}
+              {"->"} "{comment.comment}" by <b>{comment.user.name} </b>
+            </p>
+          )
+        })}
       </div>
+      {postData.userId._id === loggedInUser._id ? (
+        <button onClick={handleDelete} id="delete-btn">
+          Delete post
+        </button>
+      ) : null}
     </div>
   )
 }
