@@ -9,11 +9,12 @@ const Post = ({ postData, loggedInUser, setRefetch }) => {
       console.log(err.message)
     }
   }
-  
-  const handleDelete = async ()=> {
-    try{
 
-    } catch (err){
+  const handleDelete = async () => {
+    try {
+      await axios.delete("http://localhost:3000/blog/" + postData._id)
+      setRefetch((fetch) => !fetch)
+    } catch (err) {
       console.log(err.message)
     }
   }
@@ -53,7 +54,7 @@ const Post = ({ postData, loggedInUser, setRefetch }) => {
           )
         })}
       </div>
-      {postData.userId._id === loggedInUser._id ? (
+      {postData?.userId?._id === loggedInUser?._id ? (
         <button onClick={handleDelete} id="delete-btn">
           Delete post
         </button>

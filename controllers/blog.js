@@ -76,10 +76,17 @@ const fetchUserBlogs = async (req, res) => {
 
 const deleteBlogPost = async (req, res) => {
   try {
-    const { id } = req.params;
-    await blogModel.findByIdAndDelete(id);
-    res.status(200).json({
-      message: "Blog post deleted successfully",
+    const { id } = req.params
+    let userId = req.user._id;
+   let blogPost = await blogModel.findById(id)
+    if (req.user._id.toString() === id) {
+    
+      return res.status(200).json({
+        message: "Blog post deleted successfully",
+      })
+    }
+    return res.status(403).json({
+      message: "unable to delete, inadequate permission",
     })
   } catch (err) {
     res.status(500).json("Unable to delete blog")
