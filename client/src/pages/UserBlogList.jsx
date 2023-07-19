@@ -56,15 +56,15 @@ function UserBlogList() {
     <div>
       <Header />
       <div className="profile-container">
-        <h3>User blog List</h3>
-        <a href="/">Go back home</a>
+        <h3 className="text-center mt-2 font-bold">User blog List</h3>
+        <a href="/"><b className="text-blue-700 text-underline mt-2">Go back home</b></a>
         <hr />
         {state?.user?.following?.includes(userProfile?._id) ? (
-          <button onClick={() => handleFollow(userProfile?._id, "unfollow")}>
+          <button className="bg-blue-300 p-2 rounded-md font-bold text-white mt-4 mb-2" onClick={() => handleFollow(userProfile?._id, "unfollow")}>
             Unfollow {userProfile?.name}
           </button>
         ) : (
-          <button onClick={() => handleFollow(userProfile?._id, "follow")}>
+          <button className="bg-blue-300 p-2 rounded-md font-bold text-white mt-4 mb-2" onClick={() => handleFollow(userProfile?._id, "follow")}>
             Follow {userProfile?.name}
           </button>
         )}
