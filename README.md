@@ -3,8 +3,6 @@ Final Project for GA SEI Bootcamp
 
 # Blogify
 
-<img src="images/JourneyMate.png" name="image-name">
-
 ### Date: 07/6/2023
 
 ---
