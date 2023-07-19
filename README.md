@@ -46,24 +46,6 @@ Final Project for GA SEI Bootcamp
 
 ---
 
-## **_Screenshots_**
-
-### Blofigy: ADD SCREENSHOT WHEN DONE
-
-<details>
-<summary>Homepage</summary>
-  <img src="client/images/HomePage.png" name="image-name">
-</details>
-<details>
-<summary>Post Page</summary>
-  <img src="client/images/PostPage.png" name="image-name">
-</details>
-<details>
- <summary>Profile Page</summary>
-  <img src="client/images/ProfilePage.png" name="image-name">
-</details>
-<br>
-
 ### Blogify ERD:
 
 <details>
@@ -102,13 +84,3 @@ Final Project for GA SEI Bootcamp
 #####
 
 #####
-
-NOTES:
-- combine user model and profile
-- Need Another model
-- Following users as another model? many to many self relationship
-- Like or favorites as a model
-
----
-npm install react react-dom react-router-dom express mongoose passport passport-google-oauth20
-DO I NEED THIS?
