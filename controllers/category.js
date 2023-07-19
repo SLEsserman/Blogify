@@ -7,7 +7,6 @@ const seedCategory = async (req, res) => {
     {name: 'Religion'},
     {name: 'Sports'},
     {name: 'Movies'},
-    {name: 'Gender'},
     {name: 'Cars'},
   ]
   try {
