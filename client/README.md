@@ -29,7 +29,7 @@ Final Project for GA SEI Bootcamp
 
 ## **_Technologies Used_**
 - React
-- CSS
+- Tailwind Libraries for styling
 - React Router
 - Node.js
 - Express.js
@@ -37,12 +37,6 @@ Final Project for GA SEI Bootcamp
 - OAuth
 
 ## <br>
-
-## **_API Reference_**
-
-- STILL TBD
-- YouTube API? 
-- VOX Script?
 
 <br>
 
@@ -60,15 +54,15 @@ Final Project for GA SEI Bootcamp
 
 <details>
 <summary>Homepage</summary>
-  <img src="images/wireframe_1.png" name="image-name">
+  <img src="client/images/HomePage.png" name="image-name">
 </details>
 <details>
-<summary>Destination Index</summary>
-  <img src="images/wireframe_2.png" name="image-name">
+<summary>Post Page</summary>
+  <img src="client/images/PostPage.png" name="image-name">
 </details>
 <details>
- <summary>Destination Details</summary>
-  <img src="images/wireframe_3.png" name="image-name">
+ <summary>Profile Page</summary>
+  <img src="client/images/ProfilePage.png" name="image-name">
 </details>
 <br>
 
@@ -76,7 +70,7 @@ Final Project for GA SEI Bootcamp
 
 <details>
  <summary>Entity Relationship Diagram</summary>
-  [here](https://whimsical.com/final-project-GN2hfSWSq9Uj55yJWbPMCW)
+  https://whimsical.com/final-project-GN2hfSWSq9Uj55yJWbPMCW
 </details>
 <br>
 
@@ -95,6 +89,11 @@ Final Project for GA SEI Bootcamp
 ---
 
 ### **_Credits_**
+- https://react.dev/reference/react/useContext
+- https://create-react-app.dev/docs/proxying-api-requests-in-development
+- https://stackoverflow.com/questions/75030503/react-router-v6-createbrowserrouter-throwing-uncaught-syntaxerror-unexpected-to
+- https://reactrouter.com/en/main/start/tutorial
+- https://tailwindcss.com/docs/border-radius#pill-buttons
 
 <br>
 
