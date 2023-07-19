@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "proxy": "http://localhost:3001",
-  "build": "vite build && touch ./dist/CNAME && echo 'spotless-banana.surge.sh' >> ./dist/CNAME && npx surge --project ./dist --domain 'spotless-banana.surge.sh'",
+  "build": "vite build && touch ./dist/CNAME && echo 'sle-blogify-fp.surge.sh' >> ./dist/CNAME && npx surge --project ./dist --domain 'sle-blogify-fp.surge.sh'",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
