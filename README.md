@@ -11,6 +11,18 @@ Final Project for GA SEI Bootcamp
 
 #### "Blogify" is a blog website that allows users to create and publish their own blog posts on various topics. It provides a platform for writers, bloggers, and content creators to share their ideas, experiences, and expertise with a wider audience. Users can create an account, write blog posts, customize their profile, and interact with other users through comments and likes.
 
+
+## **_User Experience_**
+
+#### - Users login using OAuth.
+#### - Once user is logged in they now have the ability to comment and like either their own post or those of others.
+#### - If a user enjoys the blog post of a particular user they can click on the name associated to those post and go an follow that creator
+#### - Once following another use the follower count is ++1
+#### - Users can comment on any post 
+#### - User can also filter all of the posts by category 
+
+
+
 <br>
 
 ---
@@ -58,7 +70,7 @@ Final Project for GA SEI Bootcamp
 
 ## **_Future Updates_**
 
-- Categories and Tags: Add the ability to categorize blog posts into different topics or assign tags to facilitate easier navigation and content discovery.
+X Categories and Tags: Add the ability to categorize blog posts into different topics or assign tags to facilitate easier navigation and content discovery.
 - Social Sharing: Include social sharing buttons to enable users to share blog posts on various social media platforms.
 - User Following: Implement a feature that allows users to follow other authors and receive updates when they publish new blog posts.
 - Rich Text Editor: Replace the markdown editor with a WYSIWYG editor to provide a more user-friendly writing experience for authors.
