@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "heroku": "npm cache clean --force && npm install && git push heroku main && cd client && npm run build",
+    "heroku": "git push heroku main && cd client && npm run build",
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
